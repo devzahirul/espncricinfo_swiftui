@@ -10,14 +10,16 @@ import SwiftUI
 struct LiveScoreCartList: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
+            HStack(spacing: .zero) {
               ForEach(1...5, id: \.self) {option in
                LiveScoreCartIemView()
-               .padding()
+               .padding(8)
                .background(Color("cartbg"))
                .clipShape(RoundedRectangle(cornerRadius: 12))
+               .padding(.leading, 6)
+               .frame(width: 320)
               }
-            }.padding(.horizontal)
+            }
         }
     }
 }

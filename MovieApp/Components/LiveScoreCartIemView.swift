@@ -31,11 +31,13 @@ struct LiveScoreCartIemView: View {
                     Text("BAN")
                     Spacer()
                     Text("310")
-                }.font(.headline)
-                    .foregroundColor(Color(.systemGray2))
+                }
+                .font(.system(size: 14, weight: .bold))
+                .foregroundColor(Color(.systemGray2))
                 HStack {
                     HStack(spacing: 2) {
                         Text("NZ")
+                        
                         Circle()
                             .foregroundColor(Color.red)
                             .frame(width: 6, height: 6)
@@ -46,22 +48,27 @@ struct LiveScoreCartIemView: View {
                             .font(.footnote)
                         Text("168/4")
                     }
-                }.font(.headline)
+                }.font(.system(size: 14, weight: .bold))
                 
             }
             
             
             HStack {
              Text("Day 2 - Session 2: New Zeland trail by 142 runs.")
-            }.font(.footnote)
+             .foregroundColor(Color.white)
+            }
+            .font(.system(size: 10 , weight: .semibold))
             
-            LineView(lineHeight: 0.5)
+            
+           Divider()
+           .foregroundColor(Color.white)
+           
             CurrentMatchList(items: [
             .init(title: "Schedule"),
             .init(title: "Report"),
             .init(title: "Series")
             
-            ], selected: .constant(.matches4), showAllBold: true)
+            ], selected: .constant(.matches4), showAllBold: true, paddingSize: .zero)
         }
     }
 }
