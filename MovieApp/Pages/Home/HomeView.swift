@@ -263,6 +263,14 @@ struct HomeView: View {
                 Spacer()
                 
             }
+            .onAppear {
+            
+              Task {
+                let stories = try await StoryService.shared.fetchStories()
+                print(stories)
+              }
+            
+            }
         }.background(Color.black)
     }
 }

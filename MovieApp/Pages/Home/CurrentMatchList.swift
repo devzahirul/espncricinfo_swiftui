@@ -35,3 +35,52 @@ struct CurrentMatchList_Previews: PreviewProvider {
         .preferredColorScheme(.dark)
     }
 }
+
+
+
+struct StylePickButtonConfiguration {
+    
+    struct Label: View {
+        var body: Never  {
+          fatalError("Leav")
+        }
+        
+      typealias Body = Never
+    }
+    
+    
+    let label: Label
+    
+}
+
+
+struct StylePickButton<Label: View>: View {
+  let action: () -> Void
+  let label: () -> Label
+  
+  var body: some View {
+     label()
+     .onTapGesture{
+     action()
+     }
+  }
+}
+
+
+protocol StylePickButtonStyle {
+ associatedtype Body: View
+ @ViewBuilder func makeBody(config: StylePickButtonConfiguration) -> Self.Body
+}
+
+
+extension StylePickButton where Label: View {
+  func addStylePickButtonStyle<S: StylePickButtonStyle>(_ style: S) -> some View {
+    style.makeBody(config: StylePickButtonConfiguration(label: .init()))
+  }
+}
+
+
+
+
+
+
